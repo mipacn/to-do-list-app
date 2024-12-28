@@ -9,13 +9,12 @@ class Project{
 }
 
 class Task{
-    constructor(title, description, due, priority, notes, checked, project){
+    constructor(title, description, due, priority, notes, project){
         this.title = title
         this.description = description
         this.due = due
         this.priority = priority
         this.notes = notes
-        this.checked = checked
         this.project = project
     }
 }
@@ -45,11 +44,8 @@ let form = document.querySelector("form")
 
 let penes = ["a", "e", "i"]
 
-task.addEventListener("click", ()=>{
-    
+task.addEventListener("click", ()=>{   
     form.innerHTML = ""
-    
-
     let div1 = document.createElement("div")
     let div2 = document.createElement("div")
     let div3 = document.createElement("div")
@@ -140,3 +136,155 @@ project.addEventListener("click", ()=>{
     form.append(input1)
     input1.style.cssText = "width: 229px !important"
 })
+
+
+function attachDotListeners() {
+    let dots = document.querySelectorAll(".circle"); // Always query the latest NodeList
+    dots.forEach(dot => {
+        dot.addEventListener('click', handleDotClick);
+    });
+}
+
+function handleDotClick(event) {
+    let element = event.currentTarget; // The clicked dot
+    let task = element.parentElement;
+    task.style.cssText = "position: relative";
+
+    let existingContainer = task.querySelector('.action-container');
+    if (existingContainer) {
+        task.removeChild(existingContainer);
+        return;
+    }
+
+    let container = document.createElement("div");
+    container.classList.add('action-container');
+    task.append(container);
+
+    let p1 = document.createElement("p");
+    let p2 = document.createElement("p");
+    let p3 = document.createElement("p");
+    p1.textContent = "View";
+    p2.textContent = "Edit";
+    p3.textContent = "Delete";
+
+    container.append(p1, p2, p3);
+
+    p1.style.cssText = "margin:0; border:1.5px solid grey; border-radius:0.5vh; padding: 0vh 0.5vh; cursor:pointer";
+    p2.style.cssText = "margin:0; border:1.5px solid grey; border-radius:0.5vh; padding: 0vh 0.5vh; cursor:pointer";
+    p3.style.cssText = "margin:0; border:1.5px solid grey; border-radius:0.5vh; padding: 0vh 0.5vh; cursor:pointer";
+
+    container.style.cssText = "display:flex; gap:0.5vh; position:absolute; top:-0.75vh; right:-4vh; border-radius:1vh";
+
+    p1.addEventListener("click", () => handleViewClick(task));
+    p2.addEventListener("click", () => handleEditClick(task));
+}
+
+function handleViewClick(task) {
+    task.innerHTML = "";
+
+    let properties = ["title", "description", "due", "priority", "notes", "project"];
+    let paraWrapper = document.createElement("div");
+
+    properties.forEach(property => {
+        let para = document.createElement("p");
+        para.textContent = property;
+        para.style.cssText = "background:rgb(200, 200, 200); color:black; font-size:3vh";
+        paraWrapper.append(para);
+    });
+
+    paraWrapper.style.cssText = "width: 100%; background:rgb(200, 200, 200); display:flex; flex-direction:column;align-items:center";
+    task.append(paraWrapper);
+
+    let exit = document.createElement("p");
+    exit.textContent = "x";
+    task.style.cssText = "position:relative";
+    exit.style.cssText = "position:absolute; top:0vh; right:2vh; font-size: 5vh; cursor:pointer";
+    task.append(exit);
+
+    exit.addEventListener("click", () => handleExitClick(task));
+}
+
+function handleEditClick(task) {
+    task.innerHTML = "";
+
+    let properties = ["title", "description", "due", "priority", "notes", "project"];
+    let inputs = {};
+    let formWrapper = document.createElement("div");
+
+    properties.forEach(property => {
+        let label = document.createElement("label");
+        let input = document.createElement("input");
+        inputs[property] = input;
+
+        label.textContent = property;
+        label.style.cssText = "font-size:2.5vh; margin-bottom:1vh";
+
+        input.type = "text";
+        input.placeholder = `Enter ${property}`;
+        input.style.cssText = "font-size:2.5vh; margin-bottom:1vh; padding:0.5vh; border-radius:0.5vh; width:90%";
+
+        let inputWrapper = document.createElement("div");
+        inputWrapper.style.cssText = "display:flex; flex-direction:column; align-items:flex-start; width:100%";
+
+        inputWrapper.append(label, input);
+        formWrapper.append(inputWrapper);
+    });
+
+    formWrapper.style.cssText = "width: 100%; background:rgb(200, 200, 200); display:flex; flex-direction:column;align-items:center; padding:1vh";
+    task.append(formWrapper);
+
+    // Save Button
+    let saveButton = document.createElement("button");
+    saveButton.textContent = "Save";
+    saveButton.style.cssText = "font-size:2.5vh; padding:0.5vh 1vh; background:green; color:white; border:none; border-radius:0.5vh; cursor:pointer; margin-top:1vh";
+    task.append(saveButton);
+
+    saveButton.addEventListener("click", () => {
+        task.innerHTML = ""; // Clear task
+
+        let box = document.createElement("input");
+        box.type = "checkbox";
+        let title = document.createElement("p");
+        title.classList.add("title");
+        title.textContent = inputs.title.value || "title"; // Default to "title" if empty
+        let circle = document.createElement("div");
+        circle.classList.add("circle");
+        let img = document.createElement("img");
+        img.src = "./three-dots-svgrepo-com.svg";
+        circle.append(img);
+
+        task.append(box, title, circle);
+        attachDotListeners(); // Reattach event listeners
+    });
+
+    // Exit Button
+    let exit = document.createElement("p");
+    exit.textContent = "x";
+    task.style.cssText = "position:relative";
+    exit.style.cssText = "position:absolute; top:0vh; right:2vh; font-size: 5vh; cursor:pointer";
+    task.append(exit);
+
+    exit.addEventListener("click", () => handleExitClick(task));
+}
+
+function handleExitClick(task) {
+    task.innerHTML = ""; // Clear task content
+
+    // Recreate original structure
+    let box = document.createElement("input");
+    box.type = "checkbox";
+    let title = document.createElement("p");
+    title.classList.add("title");
+    title.textContent = "title";
+    let circle = document.createElement("div");
+    circle.classList.add("circle");
+    let img = document.createElement("img");
+    img.src = "./three-dots-svgrepo-com.svg";
+    circle.append(img);
+
+    task.append(box, title, circle);
+    attachDotListeners(); // Reattach event listeners
+}
+
+// Initial setup
+attachDotListeners();

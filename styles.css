@@ -189,7 +189,7 @@ img {
     width: auto;
     background-color: rgb(200, 200, 200);
     cursor: pointer;
-
+    transition: 0.6s ease;
 }
 
 main {
@@ -257,7 +257,7 @@ input:checked::after {
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-
+    transition: 0.6s ease;
     cursor: pointer;
 }
 
