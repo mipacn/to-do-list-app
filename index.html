@@ -22,26 +22,28 @@
         <dialog>
             <div class="dialog">
                 <div class="left">
+                    
                     <button class="task">New task</button>
                     <button class="project">New project</button>
-                    <button class="exit">Exit</button>
+                    <button class="enter">Enter</button>
                 </div>
                 <div class="right">
+                    <p class="exit">x</p>
                     <form>
                         <div class="title">
-                            <label for="title">Enter the task</label>
+                            <label>Enter the task</label>
                             <input type="text"id="title">
                         </div>
                         <div class="description">
-                            <label for="description">Enter the description of the task</label>
+                            <label>Enter the description of the task</label>
                             <input type="text"id="description">
                         </div>
                         <div class="due">
-                            <label for="due">Enter the due date of the task</label>
+                            <label>Enter the due date of the task</label>
                             <input type="datetime-local"id="due">
                         </div>
                         <div class="priority">
-                            <label for="priority">Select the priority of the task</label>
+                            <label>Select the priority of the task</label>
                             <select id="priority">
                                 <option>Low</option>
                                 <option>Medium</option>
@@ -49,11 +51,11 @@
                             </select>
                         </div>
                         <div class="notes">
-                            <label for="notes">Enter some notes/comments</label>
+                            <label>Enter some notes/comments</label>
                             <input type="text"id="notes">
                         </div>
                         <div class="project">
-                            <label for="project">In which project will the task be?</label>
+                            <label>In which project will the task be?</label>
                             <select id="project"></select>
                         </div>
                     </form>
@@ -68,17 +70,17 @@
         <div class="todo eat">
             <input type="checkbox">
             <p class="title">eat</p>
-            <img src="three-dots-svgrepo-com.svg">
+            <div class="circle"><img src="three-dots-svgrepo-com.svg"></div>
         </div>
         <div class="todo drink">
             <input type="checkbox">
             <p class="title">drink</p>
-            <img src="three-dots-svgrepo-com.svg">
+            <div class="circle"><img src="three-dots-svgrepo-com.svg"></div>
         </div>
         <div class="todo breathe">
             <input type="checkbox">
             <p class="title">breathe</p>
-            <img src="three-dots-svgrepo-com.svg">
+            <div class="circle"><img class="gay" src="three-dots-svgrepo-com.svg"></div>
         </div>
     </main>
 </body>

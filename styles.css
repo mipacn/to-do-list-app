@@ -105,13 +105,28 @@ dialog {
     padding: 1vh 2vh;
 }
 
-.left > .exit {
-    margin-top: auto;
+.left > .enter {
+    margin-top: 243px;
 }
 
 .left > button:focus {
     outline: none ;
-}   
+} 
+
+.right {
+    position: relative;
+    padding-top: 6vh;
+}
+
+.right > p {
+    background-color: black;
+    font-size: 5vh;
+    position: absolute;
+    margin: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
 
 form {
     display: flex;
@@ -135,24 +150,15 @@ input {
     height: 4vh;
 }
 
-input:hover {
-    background-color: rgb(220, 220, 220);
-}
-
-input:checked::after {
-    content: "✓";
-    color: black;
-    font-size: 4vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    background-color: rgb(200, 200, 200);
-}
-
-
 input:focus {
     outline: none ;
+}
+
+select {
+    background-color: rgb(220, 220, 220);
+    color: black;
+    height: 4vh;
+    border-radius: 1vh;
 }
 
 .add {
@@ -183,6 +189,7 @@ img {
     width: auto;
     background-color: rgb(200, 200, 200);
     cursor: pointer;
+
 }
 
 main {
@@ -220,6 +227,21 @@ main {
     width: 4vh !important;
 }
 
+input:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+input:checked::after {
+    content: "✓";
+    color: black;
+    font-size: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: rgb(200, 200, 200);
+}
+
 .todo > p {
     background-color: transparent;
     color: black;
@@ -227,4 +249,27 @@ main {
     margin: 2vh;
 }
 
+.circle {
+    height: 5vh;
+    width: 5vh;
+    background-color: rgb(200, 200, 200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+
+    cursor: pointer;
+}
+
+.circle > img {
+    border-radius: 100%;
+}
+
+.circle:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.circle:hover img {
+    background-color: rgb(220, 220, 220); 
+  }
 
