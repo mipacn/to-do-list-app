@@ -1,87 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <header>
-        <p>To-do List App</p>
-    </header>
-    <nav>
-        <p class="section">Home</p>
-        <p class="section">Projects</p>
-        <div class="projects">
-            <p class="subsection">Default
-                <img class="remove" src="trash-alt-svgrepo-com.svg">
-            </p>
-        </div>
-        <dialog>
-            <div class="dialog">
-                <div class="left">
-                    
-                    <button class="task">New task</button>
-                    <button class="project">New project</button>
-                    <button class="enter">Enter</button>
-                </div>
-                <div class="right">
-                    <p class="exit">x</p>
-                    <form>
-                        <div class="title">
-                            <label>Enter the task</label>
-                            <input type="text"id="title">
-                        </div>
-                        <div class="description">
-                            <label>Enter the description of the task</label>
-                            <input type="text"id="description">
-                        </div>
-                        <div class="due">
-                            <label>Enter the due date of the task</label>
-                            <input type="datetime-local"id="due">
-                        </div>
-                        <div class="priority">
-                            <label>Select the priority of the task</label>
-                            <select id="priority">
-                                <option>Low</option>
-                                <option>Medium</option>
-                                <option>High</option>
-                            </select>
-                        </div>
-                        <div class="notes">
-                            <label>Enter some notes/comments</label>
-                            <input type="text"id="notes">
-                        </div>
-                        <div class="project">
-                            <label>In which project will the task be?</label>
-                            <select id="project"></select>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </dialog>
-        <div class="add">
-            <p>+</p>
-        </div>
-    </nav>
-    <main>
-        <div class="todo eat">
-            <input type="checkbox">
-            <p class="title">bueno, lo dejo por ahora</p>
-            <div class="circle"><img src="three-dots-svgrepo-com.svg"></div>
-        </div>
-        <div class="todo drink">
-            <input type="checkbox">
-            <p class="title">aunque lo voy a deployear</p>
-            <div class="circle"><img src="three-dots-svgrepo-com.svg"></div>
-        </div>
-        <div class="todo breathe">
-            <input type="checkbox">
-            <p class="title">pa hacerlo como lo estaba haciendo, mejor lo dejo</p>
-            <div class="circle"><img src="three-dots-svgrepo-com.svg"></div>
-        </div>
-    </main>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="script.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<p>To-do List App</p>
+		</header>
+		<nav>
+			<p class="section">Home</p>
+			<p class="section">Projects</p>
+			<div class="projects">
+				<p class="subsection">
+					Default
+					<img class="remove" src="trash-alt-svgrepo-com.svg" />
+				</p>
+			</div>
+			<dialog>
+				<div class="dialog">
+					<div class="left">
+						<button class="task">New task</button>
+						<button class="project">New project</button>
+						<button class="enter">Enter</button>
+					</div>
+					<div class="right">
+						<p class="exit">x</p>
+						<form>
+							<div class="title">
+								<label>Enter the task</label>
+								<input type="text" id="title" />
+							</div>
+							<div class="description">
+								<label>Enter the description of the task</label>
+								<input type="text" id="description" />
+							</div>
+							<div class="due">
+								<label>Enter the due date of the task</label>
+								<input type="datetime-local" id="due" />
+							</div>
+							<div class="priority">
+								<label>Select the priority of the task</label>
+								<select id="priority">
+									<option>Low</option>
+									<option>Medium</option>
+									<option>High</option>
+								</select>
+							</div>
+							<div class="notes">
+								<label>Enter some notes/comments</label>
+								<input type="text" id="notes" />
+							</div>
+							<div class="project">
+								<label>In which project will the task be?</label>
+								<select id="project"></select>
+							</div>
+						</form>
+					</div>
+				</div>
+			</dialog>
+			<div class="add">
+				<p>+</p>
+			</div>
+		</nav>
+		<main>
+			<div class="todo eat">
+				<input type="checkbox" />
+				<p class="title">bueno, lo dejo por ahora</p>
+				<div class="circle"><img src="three-dots-svgrepo-com.svg" /></div>
+			</div>
+			<div class="todo drink">
+				<input type="checkbox" />
+				<p class="title">aunque lo voy a deployear</p>
+				<div class="circle"><img src="three-dots-svgrepo-com.svg" /></div>
+			</div>
+			<div class="todo breathe">
+				<input type="checkbox" />
+				<p class="title">ya no me enojo contigo</p>
+				<div class="circle"><img src="three-dots-svgrepo-com.svg" /></div>
+			</div>
+		</main>
+	</body>
 </html>
